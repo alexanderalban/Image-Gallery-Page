@@ -66,6 +66,16 @@ img {
     text-align: center;
   }
 
+
+  /*Easter Egg!*/
+
+#robot-wrapper:hover {
+    animation: tada;
+    animation-duration: 1s;
+} 
+
+  /*Media Queries*/
+
 @media (max-width: 800px) {
     img {
         width:  auto;
