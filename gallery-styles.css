@@ -1,0 +1,107 @@
+
+
+/*main container files*/
+
+#top-row {
+    grid-area: top-row;
+}
+
+#middle-row {
+    grid-area: middle-row;
+}
+
+#bottom-row {
+    grid-area: bottom-row
+}
+
+#main-container {
+    display: grid;
+    grid-template-rows: 275pt 275pt 275pt;
+    grid-template-areas: 
+    "top-row"
+    "middle-row"
+    "bottom-row";
+}
+
+/* End main container files*/
+
+.picture-row {
+    display: flex;
+    flex: 25%;
+    max-width: 25%;
+
+}
+
+.wrapper {
+    width: auto;
+    flex: 25%;
+    max-height: 25%;
+    padding: 0 4px;
+    display: flex;
+    position: relative;
+}
+
+img {
+    width: auto;
+    height: 270pt;
+    vertical-align: middle;
+    display: block;
+}
+
+
+/*Overlay settings*/
+
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.wrapper:hover .overlay {
+        opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/*Reactivity*/
+
+@media screen and (max-width: 800px) {
+#main-container {
+    display: grid;
+    grid-template-columns: 360px 360px;
+    grid-template-areas: 
+    "top-row top-row"
+    "middle-row middle-row"
+    "bottom-row bottom-row";
+    }
+  }
+
+@media screen and (max-width: 600px) {
+#main-container {
+    display: grid;
+    grid-template-columns: 400px;
+    grid-template-areas: 
+    "top-row"
+    "middle-row"
+    "bottom-row";
+    }
+  }
