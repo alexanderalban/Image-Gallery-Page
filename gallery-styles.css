@@ -1,31 +1,121 @@
 body {
-    max-width: 2000pt;
-    margin: 0 auto;
+    display: wrap;
 }
+
+/*MAIN CONTAINER FILES*/
 
 * {
     box-sizing: border-box;
 }
 
+#main-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    justify-content: center;
+
+}
+
+.wrapper {
+    position: relative;
+    margin: 0 0 3pt 8pt;
+    border-radius: 5px;
+    flex: row auto;
+    overflow: hidden; 
+    max-width: 25%;
+}
+
+img {
+    float: center;
+    width:  auto;
+    height: 275px;
+    object-fit: cover;
+    justify-content: center;
+
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+.wrapper:hover .overlay {
+    opacity: 1;
+  }
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+@media (max-width: 800px) {
+    img {
+        width:  auto;
+        max-height: 200px;
+        object-fit: cover;
+        justify-items: center;
+    }
+
+    .wrapper {
+        max-height: 200px;
+        max-width: 40%;
+    }
+
+        .text {
+            font-size: 15px;
+        }
+
+}
+
+@media (max-width: 576px) {
+    img {
+        width:  auto;
+        max-height: 300px;
+        object-fit: cover;
+        justify-items: center;
+    }
+
+    .wrapper {
+        max-height: 500px;
+        max-width: 80%;
+    }
+
+    .text {
+        font-size: 18px;
+    }
+}
+
+
+
+/*ALL OLD CODE. NO WORKY*/
+
+
 /*main container files*/
 
-#top-row {
-    grid-area: top-row;
-}
 
-#middle-row {
-    grid-area: middle-row;
-}
-
-#bottom-row {
-    grid-area: bottom-row
-}
-
-#main-container {
+/*#main-container {
     display: grid;
     justify-content: start;
-    grid-template-columns: auto;
-    grid-template-rows: 275pt 275pt 275pt;
+    grid-template-columns: repeat(auto-fill);
+    grid-template-rows: repeat(3, 275pt);
     grid-template-areas: 
     "top-row"
     "middle-row"
@@ -34,21 +124,22 @@ body {
 
 /* End main container files*/
 
-.picture-row {
+/*.picture-row {
     display: flex;
-    flex: 25%;
-    max-width: 25%;;
+    /*flex: 25%;*/
+   /*  max-width: 25%; 
 }
+/*
 
 .wrapper {
-    width: auto;
-    flex: 25%;
-    max-height: 25%;
+    width: 100%;
+    /*flex: 25%;*/
+  /*  max-height: 25%;
     padding: 0 4px;
     display: flex;
     position: relative;
 }
-
+/*
 img {
     width: auto;
     height: 270pt;
@@ -60,7 +151,7 @@ img {
 
 
 
-.overlay {
+/*.overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -92,7 +183,7 @@ img {
 
 /* Grid area definitions*/
 
-#austin-wrapper {
+/*#austin-wrapper {
     grid-area: austin;
 }
 
@@ -160,14 +251,14 @@ img {
 
 /*Tablet Reactivity*/
 
-@media screen and (max-width: 800px) {
+ /*@media screen and (max-width: 800px) { 
 
     body {
         max-width: 700px;
         margin: 0, auto;
     }
 
-#main-container {
+ #main-container { 
     display: grid;
     grid-template-columns: 340px 340px;
     grid-template-rows: 340px 340px 340px 340px 340px 340px 340px 340px 340px;
@@ -239,96 +330,3 @@ img {
 
 
 }
-
-
-/*Phone Reactivity*/
-
-@media screen and (max-width: 600px) {
-
-    body {
-        max-width: 450px;
-        margin: 0, auto;
-    }
-
-    #main-container {
-        display: grid;
-        grid-template-columns: 450px;
-        grid-template-rows: repeat(16, 450px);
-        grid-template-areas: 
-        "top-row"
-        "top-row"
-        "top-row"
-        "top-row"
-        "top-row"
-        "middle-row"
-        "middle-row"
-        "middle-row"
-        "middle-row"
-        "middle-row"
-        "bottom-row"
-        "bottom-row"
-        "bottom-row"
-        "bottom-row"
-        "bottom-row"
-        "bottom-row";
-    
-    }
-
-    #top-row {
-        display: grid;
-        grid-template-columns: 450px;
-        grid-template-rows: repeat(5, 450px );
-        grid-template-areas:
-        "austin" 
-        "castle"
-        "cave" 
-        "wonder"
-        "magic"
-    }
-
-    #middle-row {
-        display: grid;
-        grid-template-columns: 450px;
-        grid-template-rows: repeat(5, 450px );
-        grid-template-areas:
-        "carrie"
-        "game-boy"
-        "knight" 
-        "light"
-        "mic"
-    }
-
-    #bottom-row {
-        display: grid;
-        grid-template-columns: 450px;
-        grid-template-rows: repeat(6, 450px );
-        grid-template-areas:
-        "space-man" 
-        "tomorrowland"
-        "tree"
-        "whale"
-        "robot"
-        "computer"
-    }
-
-        img {
-            width: 450px;
-            height: 450px;
-            object-fit: cover;
-            padding: 5px;
-            vertical-align: middle;
-        }
-
-        .mid-pic {
-            width: 450px;
-        }
-        
-        .overlay {
-            height:450px;
-            width: 450px;
-            object-fit: cover;
-        
-        }
-
-
-    }
