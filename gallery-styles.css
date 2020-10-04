@@ -42,7 +42,6 @@ button {
     border-radius: 5px;
     flex: row auto;
     overflow: hidden; 
-    max-width: 25%;
 }
 
 img {
@@ -51,6 +50,7 @@ img {
     height: 275px;
     object-fit: cover;
     justify-content: center;
+    object-position: 50% 50%;
 
 }
 
